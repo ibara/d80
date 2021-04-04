@@ -44,6 +44,23 @@ static void disz80(ubyte[] b)
         case 0xdb:
             writef(insnz80[b[a]].s, b[a + 1]);
             break;
+        case 0xed:      /// ED table
+            switch (b[a + 1]) {
+            case 0x43:
+            case 0x4b:
+            case 0x53:
+            case 0x5b:
+            case 0x63:
+            case 0x6b:
+            case 0x73:
+            case 0x7b:
+                write(insnz80ed[b[a + 1]].s, b[a + 3], b[a + 2]);
+                a += insnz80ed[b[a + 1]].n;
+                break;
+            default:
+                writef("%s", insnz80ed[b[a + 1]].s);
+            }
+            break;
         default:
             writef("%s", insnz80[b[a]].s);
             if (insnz80[b[a]].n > 1) {
