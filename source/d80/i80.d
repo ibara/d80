@@ -11,7 +11,7 @@ struct i80 {
 /**
  * Table of Intel 8080 instructions.
  */
-i80[] insni80 = [
+immutable i80[] insni80 = [
     { "nop",       1 },
     { "lxi\tb, ",  3 },
     { "stax\tb",   1 },

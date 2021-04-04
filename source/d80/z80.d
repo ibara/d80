@@ -11,7 +11,7 @@ struct z80 {
 /**
  * Primary table of Zilog Z80 instructions.
  */
-z80[] insnz80 = [
+immutable z80[] insnz80 = [
     { "nop",                 1 },
     { "ld\tbc, ",            3 },
     { "ld\t(bc), ",          1 },
@@ -276,7 +276,7 @@ z80[] insnz80 = [
  *   2 bytes in length and we handle that in the
  *   primary table.
  */
-z80[] insnz80cb = [
+immutable z80[] insnz80cb = [
     { "rlc\tb",       0 },
     { "rlc\tc",       0 },
     { "rlc\td",       0 },
