@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/d80
+d80.so
+d80.dylib
+d80.dll
+d80.a
+d80.lib
+d80-test-*
+*.exe
+*.o
+*.obj
+*.lst
