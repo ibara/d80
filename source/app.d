@@ -37,6 +37,9 @@ static void disz80(ubyte[] b)
         case 0x3a:
             writef(insnz80[b[a]].s, b[a + 2], b[a + 1]);
             break;
+        case 0xcb:      /// CB table
+            writef("%s", insnz80cb[b[a + 1]].s);
+            break;
         case 0xd3:
         case 0xdb:
             writef(insnz80[b[a]].s, b[a + 1]);
