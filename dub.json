@@ -3,7 +3,7 @@
 		"Brian Callahan"
 	],
 	"copyright": "Copyright © 2021, Brian Callahan",
-	"description": "An Intel 8080 disassembler.",
+	"description": "Intel 8080/Zilog Z80 disassembler.",
 	"license": "ISC",
 	"name": "d80"
 }

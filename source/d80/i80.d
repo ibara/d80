@@ -1,11 +1,17 @@
 module d80.i80;
 
-struct X {
-    string s;
-    ubyte n;
+/**
+ * Strings and instruction lengths for Intel 8080.
+ */
+struct i80 {
+    string s;           /// Instruction name
+    ubyte n;            /// Length of instruction in bytes
 }
 
-X[] insns = [
+/**
+ * Table of Intel 8080 instructions.
+ */
+i80[] insni80 = [
     { "nop",       1 },
     { "lxi\tb, ",  3 },
     { "stax\tb",   1 },
@@ -16,7 +22,7 @@ X[] insns = [
     { "rlc",       1 },
     { "nop",       1 },
     { "dad",       1 },
-    { "ldax\tb" ,  1 },
+    { "ldax\tb",   1 },
     { "dcx\tb",    1 },
     { "inr\tc",    1 },
     { "dcr\tc",    1 },
@@ -92,7 +98,7 @@ X[] insns = [
     { "mov\td, e", 1 },
     { "mov\td, h", 1 },
     { "mov\td, l", 1 },
-    { "mov\td, n", 1 },
+    { "mov\td, m", 1 },
     { "mov\td, a", 1 },
     { "mov\te, b", 1 },
     { "mov\te, c", 1 },
