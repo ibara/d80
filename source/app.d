@@ -82,6 +82,10 @@ static void disz80(ubyte[] b)
                 writef(insnz80dd[b[a + 1]].s, b[a + 2]);
                 a += insnz80dd[b[a + 1]].n;
                 break;
+            case 0xcb:  /// DDCB table
+                writef(insnz80ddcb[b[a + 3]].s, b[a + 2]);
+                a += insnz80ddcb[b[a + 3]].n;
+                break;
             default:
                 writef("%s", insnz80dd[b[a + 1]].s);
             }
@@ -140,6 +144,10 @@ static void disz80(ubyte[] b)
             case 0xbe:
                 writef(insnz80fd[b[a + 1]].s, b[a + 2]);
                 a += insnz80fd[b[a + 1]].n;
+                break;
+            case 0xcb:  /// FDCB table
+                writef(insnz80fdcb[b[a + 3]].s, b[a + 2]);
+                a += insnz80fdcb[b[a + 3]].n;
                 break;
             default:
                 writef("%s", insnz80fd[b[a + 1]].s);
