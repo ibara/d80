@@ -1,3 +1,6 @@
+/**
+ * Intel 8080 instruction tables.
+ */
 module d80.i80;
 
 /**

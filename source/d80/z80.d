@@ -1,3 +1,6 @@
+/**
+ * Zilog Z80 instruction tables.
+ */
 module d80.z80;
 
 /**
