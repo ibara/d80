@@ -44,6 +44,48 @@ static void disz80(ubyte[] b)
         case 0xdb:
             writef(insnz80[b[a]].s, b[a + 1]);
             break;
+        case 0xdd:      /// DD table
+            switch (b[a + 1]) {
+            case 0x21:
+            case 0x22:
+            case 0x2a:
+            case 0x36:
+                writef(insnz80dd[b[a + 1]].s, b[a + 3], b[a + 2]);
+                a += insnz80dd[b[a + 1]].n;
+                break;
+            case 0x26:
+            case 0x2e:
+            case 0x34:
+            case 0x35:
+            case 0x46:
+            case 0x4e:
+            case 0x56:
+            case 0x5e:
+            case 0x66:
+            case 0x6e:
+            case 0x70:
+            case 0x71:
+            case 0x72:
+            case 0x73:
+            case 0x74:
+            case 0x75:
+            case 0x77:
+            case 0x7e:
+            case 0x86:
+            case 0x8e:
+            case 0x96:
+            case 0x9e:
+            case 0xa6:
+            case 0xae:
+            case 0xb6:
+            case 0xbe:
+                writef(insnz80dd[b[a + 1]].s, b[a + 2]);
+                a += insnz80dd[b[a + 1]].n;
+                break;
+            default:
+                writef("%s", insnz80dd[b[a + 1]].s);
+            }
+            break;
         case 0xed:      /// ED table
             switch (b[a + 1]) {
             case 0x43:
@@ -54,11 +96,53 @@ static void disz80(ubyte[] b)
             case 0x6b:
             case 0x73:
             case 0x7b:
-                write(insnz80ed[b[a + 1]].s, b[a + 3], b[a + 2]);
+                writef(insnz80ed[b[a + 1]].s, b[a + 3], b[a + 2]);
                 a += insnz80ed[b[a + 1]].n;
                 break;
             default:
                 writef("%s", insnz80ed[b[a + 1]].s);
+            }
+            break;
+        case 0xfd:      /// FD table
+            switch (b[a + 1]) {
+            case 0x21:
+            case 0x22:
+            case 0x2a:
+            case 0x36:
+                writef(insnz80fd[b[a + 1]].s, b[a + 3], b[a + 2]);
+                a += insnz80fd[b[a + 1]].n;
+                break;
+            case 0x26:
+            case 0x2e:
+            case 0x34:
+            case 0x35:
+            case 0x46:
+            case 0x4e:
+            case 0x56:
+            case 0x5e:
+            case 0x66:
+            case 0x6e:
+            case 0x70:
+            case 0x71:
+            case 0x72:
+            case 0x73:
+            case 0x74:
+            case 0x75:
+            case 0x77:
+            case 0x7e:
+            case 0x86:
+            case 0x8e:
+            case 0x96:
+            case 0x9e:
+            case 0xa6:
+            case 0xae:
+            case 0xb6:
+            case 0xbe:
+                writef(insnz80fd[b[a + 1]].s, b[a + 2]);
+                a += insnz80fd[b[a + 1]].n;
+                break;
+            default:
+                writef("%s", insnz80fd[b[a + 1]].s);
             }
             break;
         default:

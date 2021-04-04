@@ -1,8 +1,8 @@
 d80
 ===
 `d80` is an Intel 8080/Zilog Z80 disassembler.
-Supports the entire i80 instruction set and the main, CB, and ED Z80 tables
-only (for now).
+Supports the entire i80 instruction set and the main, CB, DD, ED, and FD Z80
+tables only (for now).
 
 Usage
 -----
