@@ -4,6 +4,11 @@ import std.getopt;
 import d80.i80;
 import d80.z80;
 
+version (OpenBSD)
+{
+    import core.sys.openbsd.unistd;
+}
+
 enum CPU { z80, i80 };
 
 static void disi80(ubyte[] b)
@@ -171,6 +176,14 @@ void main(string[] args)
 {
     CPU cpu;
 
+    version (OpenBSD)
+    {
+        if (pledge("stdio rpath", null) == -1) {
+            stderr.writeln("pledge");
+            return;
+        }
+    }
+
     auto Option = getopt(args, "cpu|c", &cpu);
 
     if (Option.helpWanted || args.length != 2) {
@@ -179,6 +192,14 @@ void main(string[] args)
     }
 
     ubyte[] b = cast(ubyte[])read(args[1]);
+
+    version (OpenBSD)
+    {
+        if (pledge("stdio", null) == -1) {
+            stderr.writeln("pledge");
+            return;
+        }
+    }
 
     if (cpu == cpu.i80)
         disi80(b);

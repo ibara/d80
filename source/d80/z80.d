@@ -472,6 +472,7 @@ immutable z80[] insnz80cb = [
     { "res\t7, l",    0 },
     { "res\t7, (hl)", 0 },
     { "res\t7, a",    0 },
+    { "set\t0, b",    0 },
     { "set\t0, c",    0 },
     { "set\t0, d",    0 },
     { "set\t0, e",    0 },
