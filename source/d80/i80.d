@@ -20,7 +20,7 @@ immutable i80[] insni80 = [
     { "stax\tb",   1 },
     { "inx\tb",    1 },
     { "inr\tb",    1 },
-    { "dcr",       1 },
+    { "dcr\tb",    1 },
     { "mvi\tb, ",  2 },
     { "rlc",       1 },
     { "nop",       1 },
