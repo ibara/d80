@@ -18,8 +18,13 @@ static void disi80(ubyte[] b)
     while (a < b.length) {
         writef("%04x\t%s", a, insni80[b[a]].s);
         if (insni80[b[a]].n > 1) {
-            if (insni80[b[a]].n == 3)
+            if (insni80[b[a]].n == 3) {
+                if (b[a + 2] > 0x9f)
+                    write("0");
                 writef("%02x", b[a + 2]);
+            }
+            if (insni80[b[a]].n == 2 && b[a + 1] > 0x9f)
+                write("0");
             writef("%02xh", b[a + 1]);
         }
         writeln();

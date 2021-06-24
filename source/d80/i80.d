@@ -24,7 +24,7 @@ immutable i80[] insni80 = [
     { "mvi\tb, ",  2 },
     { "rlc",       1 },
     { "nop",       1 },
-    { "dad",       1 },
+    { "dad\tb ",   1 },
     { "ldax\tb",   1 },
     { "dcx\tb",    1 },
     { "inr\tc",    1 },
